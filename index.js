@@ -9,7 +9,7 @@ var path = require('path');
 var slash = require('slash');
 
 function HtmlWebpackDynamicLoaderPlugin (options) {
-    this.options = options;
+    assert.equal(options, undefined, 'The HtmlWebpackDynamicLoaderPlugin does not accept any options');
 }
 
 HtmlWebpackDynamicLoaderPlugin.prototype.apply = function (compiler) {
@@ -18,11 +18,11 @@ HtmlWebpackDynamicLoaderPlugin.prototype.apply = function (compiler) {
     // Hook into the html-webpack-plugin processing
     compiler.plugin('compilation', function (compilation) {
         compilation.plugin('html-webpack-plugin-alter-asset-tags', function (htmlPluginData, callback) {
-            if (!htmlPluginData.plugin.options.dynamicLoad) {
+            if (!htmlPluginData.plugin.options.dynamicLoadResources) {
                 return callback(null, htmlPluginData);
             }
 
-            var regexStr = this.options.dynamicLoad;
+            var regexStr = this.options.dynamicLoadResources;
 
             var result = self.processTags(compilation, regexStr, htmlPluginData);
 

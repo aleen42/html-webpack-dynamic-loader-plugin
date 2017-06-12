@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-dynamic-loader-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extends the html-webpack-plugin to put resource tags as document.write() to enable pre execution of a script.",
   "main": "index.js",
   "files": [

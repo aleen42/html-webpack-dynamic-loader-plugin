@@ -52,8 +52,11 @@ If the configuration is left empty, nothing will be done. You need to set the pa
 
 ```javascript
 plugins: [
-  new HtmlWebpackPlugin(),
-  new HtmlWebpackDynamicLoaderPlugin({dynamicLoad: '.js$'})
+  new HtmlWebpackPlugin({
+    // any further config
+    dynamicLoadResources: '.js$'
+  }),
+  new HtmlWebpackDynamicLoaderPlugin()
 ]
 ```
 
